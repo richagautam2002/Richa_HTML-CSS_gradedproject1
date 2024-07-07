@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Test Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        form {
+            max-width: 600px;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .fixed-image {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 500px;
+            height: auto;
+        }
+        .form-section {
+            margin-bottom: 15px;
+        }
+        .form-section label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-section input, .form-section select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-section input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="labTestForm">
+        <div class="form-section">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+        <div class="form-section">
+            <label for="patientId">Patient Id (if exists)</label>
+            <input type="text" id="patientId" name="patientId">
+        </div>
+        <div class="form-section">
+            <label for="contactNumber">Contact Number</label>
+            <input type="tel" id="contactNumber" name="contactNumber" required>
+        </div>
+        <div class="form-section">
+            <label for="email">Email Id</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-section">
+            <label for="houseNumber">House Number</label>
+            <input type="text" id="houseNumber" name="houseNumber" required>
+        </div>
+        <div class="form-section">
+            <label for="street">Street</label>
+            <input type="text" id="street" name="street" required>
+        </div>
+        <div class="form-section">
+            <label for="area">Area</label>
+            <input type="text" id="area" name="area" required>
+        </div>
+        <div class="form-section">
+            <label for="district">District</label>
+            <select id="district" name="district" required>
+                <option value="">Choose</option>
+                <option value="district1">District 1</option>
+                <option value="district2">District 2</option>
+                <!-- Add more districts as needed -->
+            </select>
+        </div>
+        <div class="form-section">
+            <label>Choose the Test Type (Check at least one box)</label>
+            <input type="checkbox" name="testType" value="CBC"> CBC<br>
+            <input type="checkbox" name="testType" value="Complete Urine"> Complete Urine<br>
+            <input type="checkbox" name="testType" value="Lipid Profile"> Lipid Profile<br>
+            <input type="checkbox" name="testType" value="TSH"> Thyroid Stimulating Hormone (TSH)<br>
+            <input type="checkbox" name="testType" value="Glucose Test"> Glucose Test<br>
+        </div>
+        <div class="form-section">
+            <label>Do you want a hard copy of the report also?</label>
+            <input type="radio" name="hardCopy" value="Yes" required> Yes<br>
+            <input type="radio" name="hardCopy" value="No"> No<br>
+        </div>
+        <div class="form-section">
+            <label for="date">Select Your Comfortable Date</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-section">
+            <label for="time">Select Your Comfortable Time</label>
+            <input type="time" id="time" name="time" required>
+        </div>
+        <div class="form-section">
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <img src="image/lab_test.jpg" alt="Lab Test Image" class="fixed-image">
+    <script>
+        document.getElementById('labTestForm').addEventListener('submit', function(event) {
+            const checkboxes = document.querySelectorAll('input[name="testType"]:checked');
+            if (checkboxes.length === 0) {
+                alert('Please check at least one test type.');
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
